@@ -1,0 +1,712 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Форма</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .form-group{
+            margin-bottom: 15px;
+        }
+        .form-group> label{
+            margin-bottom: 10px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+ 
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center mt-5">
+
+        <div class="col-12 col-md-6">
+
+            <div class="header-logo text-center m-5 p-5 bg-dark" style="border-radius: 10px">
+                <a href="https://akvalit.by/"><img src="https://akvalit.by/images/Logo-Akvalit.svg" alt="">
+                </a>
+           
+
+            </div>
+
+
+            <div class="card mb-5">
+                <div class="card-header">
+                    Форма заказа
+                </div>
+
+                <div class="card-body">
+
+
+                    <!-- /emrdev/sender.php?action=init -->
+                    <form action="send.php" method="POST">
+
+                        <div class="form-group">
+                            <label>Название организации</label>
+                            <input type="hidden" name="name_org[label]" value="Название организации">
+                            <input type="text" class="form-control" name="name_org[value]">
+                            <input type="hidden" name="name_org[id]" value="26">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Название проекта</label>
+                            <input type="hidden" name="name_proekt[label]" value="Название проекта">
+                            <input type="text" class="form-control" name="name_proekt[value]">
+                            <input type="hidden" name="name_proekt[id]" value="27">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ответственное лицо (ФИО и ТЕЛЕФОН)</label>
+                            <input type="hidden" name="fio[label]" value="Ответственное лицо (ФИО и ТЕЛЕФОН)">
+                            <input type="text" class="form-control" name="fio[value]">
+                            <input type="hidden" name="fio[id]" value="28">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label>Технологическая позиция</label>
+                            <input type="hidden" name="tech_position[label]" value="Технологическая позиция">
+                            <input type="text" class="form-control" name="tech_position[value]">
+                            <input type="hidden" name="tech_position[id]" value="29">
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <label>№ опросного листа</label>
+                            <input type="hidden" name="opros_list[label]" value="№ опросного листа">
+                            <input type="text" class="form-control" name="opros_list[value]">
+                            <input type="hidden" name="opros_list[id]" value="30">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-check-label" >
+                                <span>*</span>Условный диаметр (DN или NPS):
+                            </label>
+                            <input type="hidden" name="dn[label]" value="Условный диаметр (DN или NPS)">
+                            <div class="form-check">
+                                <input  data-svicher="true" data-show="#dn-pressure" data-hide="#nps-pressure" required class="form-check-input" name="dn[value]" type="radio" value="DN" id="flexCheckDefault" checked>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    DN
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input  data-svicher="true" data-show="#nps-pressure" data-hide="#dn-pressure" required class="form-check-input"  name="dn[value]" type="radio"  value="NPS" id="flexCheckChecked" >
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    NPS
+                                </label>
+                            </div>
+                            <div class="input-group mt-2" >
+                                <input type="text" name="dn[else]"  class="form-control" placeholder="Значение">
+                            </div>
+
+                            <input type="hidden" name="dn[id]" value="5">
+
+                        </div>
+
+
+                        <div id="dn-pressure"  class="form-group">
+                            <label class="form-check-label" >
+                                <span>*</span>Давление (PN):
+                            </label>
+                            <input type="hidden" name="pressure[dn][label]" value="Давление (PN)">
+                            <select name="pressure[dn][value]" class="form-control"   data-else="true">
+                                <option value="1">1</option>
+                                <option value="1.6">1.6</option>
+                                <option value="2.5">2.5</option>
+                                <option value="4">4</option>
+                                <option value="6">6</option>
+                                <option value="10">10</option>
+                                <option value="16">16</option>
+                                <option value="25">25</option>
+                                <option value="40">40</option>
+                                <option value="64">64</option>
+                                <option value="100">100</option>
+                                <option value="160">160</option>
+                                <option value="250">250</option>
+                                <option value="320">320</option>
+                                <option value="400">400</option>
+                                <option value="else">Другое</option>
+                            </select>
+                            <div class="input-group mt-2" style="display: none" data-type="else-input">
+                                <input type="text" name="pressure[dn][else]" class="form-control" placeholder="Другое значение">
+                            </div>
+                        </div>
+
+                        <div id="dps-pressure" style="display: none" class="form-group">
+                            <label class="form-check-label" >
+                                <span>*</span>Класс давления:
+                            </label>
+                            <input type="hidden" name="pressure[dps][label]" value="Класс давления">
+                            <select name="pressure[dps][value]" class="form-control"   data-else="true">
+                                  <option value="150">150</option>
+                                  <option value="300">300</option>
+                                  <option value="400">400</option>
+                                  <option value="600">600</option>
+                                  <option value="900">900</option>
+                                  <option value="1500">1500</option>
+                                  <option value="2500">2500</option>
+                                  <option value="else">Другое</option>
+                            </select>
+                            <div class="input-group mt-2" style="display: none" data-type="else-input">
+                                <input type="text" name="pressure[dps][else]"  class="form-control" placeholder="Другое значение">
+                            </div>
+                        </div>
+                        <input type="hidden" name="pressure[id]" value="6">
+
+
+
+                        <div class="form-group">
+                            <label>Стандарт</label>
+                            <input type="hidden" name="standard[label]" value="Стандарт">
+                            <select class="form-control" name="standard[value]">
+                                <option value="API609">API609</option>
+                                <option value="ГОСТ">ГОСТ</option>
+                                <option value="DIN/EN">DIN/EN</option>
+                                <option value="JIS">JIS</option>
+                            </select>
+                            <input type="hidden" name="standard[id]" value="7">
+                        </div>
+
+                        <div class="form-group">
+                            <label><span>*</span>Тип конструкции</label>
+                            <input type="hidden" name="design[label]" value="Тип конструкции">
+                            <select required class="form-control" name="design[value]">
+                                <option value="Симметричный">Симметричный</option>
+                                <option value="С двойным эксцентриситетом">С двойным эксцентриситетом</option>
+                                <option value="С тройным эксцентриситетом">С тройным эксцентриситетом</option>
+                                <option value="Дымовой">Дымовой</option>
+                            </select>
+                            <input type="hidden" name="design[id]" value="8">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label><span>*</span>Присоединение</label>
+                            <input type="hidden" name="connection[label]" value="Присоединение">
+                            <select required class="form-control" name="connection[value]" data-else="true">
+                                <option value="Под приварку">Под приварку</option>
+                                <option value="Межфланцевое">Межфланцевое</option>
+                                <option value="Фланцевое">Фланцевое</option>
+                                <option value="Межфланцевое с резьбовыми проушинами">Межфланцевое с резьбовыми проушинами</option>
+                                <option value="Межфланцевое с центрирующими проушинами">Межфланцевое с центрирующими проушинами</option>
+                                <option value="Фланцевое с укороченной строительной длиной корпуса">Фланцевое с укороченной строительной длиной корпуса</option>
+                                <option value="else">Другое</option>
+                            </select>
+                            <div class="input-group mt-2" style="display: none" data-type="else-input">
+                                <input type="text" name="connection[else]"  class="form-control" placeholder="Другое значение">
+                            </div>
+                            <input type="hidden" name="connection[id]" value="9">
+                        </div>
+
+                        <div class="form-group">
+                            <label><span>*</span>Стандарт присоединения</label>
+
+                            <input type="hidden" name="connection_standart[label]" value="Стандарт присоединения">
+                            <div class="form-check">
+                                <input required
+                                       class="form-check-input"
+                                       name="connection_standart[value]"
+                                       type="radio"
+                                       value="DN"
+                                       id="connection_standart_1"
+                                       checked>
+                                <label class="form-check-label" for="connection_standart_1">
+                                    ASME
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input required
+                                       class="form-check-input"
+                                       name="connection_standart[value]"
+                                       type="radio"
+                                       value="DIN"
+                                       id="connection_standart_2"
+                                       >
+                                <label class="form-check-label" for="connection_standart_2">
+                                    DIN
+                                </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input required
+                                       class="form-check-input"
+                                       name="connection_standart[value]"
+                                       type="radio"
+                                       value="ГОСТ"
+                                       id="connection_standart_3"
+                                       >
+                                <label class="form-check-label" for="connection_standart_3">
+                                    ГОСТ
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input required
+                                       class="form-check-input"
+                                       name="connection_standart[value]"
+                                       type="radio"
+                                       value="JIS"
+                                       id="connection_standart_4"
+                                       >
+                                <label class="form-check-label" for="connection_standart_4">
+                                    JIS
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input required
+                                       class="form-check-input"
+                                       name="connection_standart[value]"
+                                       type="radio"
+                                       value="GB"
+                                       id="connection_standart_5"
+                                       >
+                                <label class="form-check-label" for="connection_standart_5">
+                                    GB
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input required
+                                       class="form-check-input"
+                                       name="connection_standart[value]"
+                                       type="radio"
+                                       value="EN"
+                                       id="connection_standart_6"
+                                       >
+                                <label class="form-check-label" for="connection_standart_6">
+                                    EN
+                                </label>
+                            </div>
+
+
+                            <input type="hidden" name="connection_standart[id]" value="10">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Уплотнительная поверхность</label>
+                            <input type="hidden" name="face[label]" value="Уплотнительная поверхность">
+                            <div class="form-check">
+                                <input
+                                       data-svicher="true" data-show="#face_gost" data-hide=".face_type"
+                                       class="form-check-input"
+                                       name="face[value]"
+                                       type="radio"
+                                       value="ГОСТ"
+                                       id="face_1" checked
+                                       >
+                                <label class="form-check-label" for="face_1">
+                                    ГОСТ
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input
+                                       data-svicher="true" data-show="#face_en" data-hide=".face_type"
+                                       class="form-check-input"
+                                       name="face[value]"
+                                       type="radio"
+                                       value="EN"
+                                       id="face_2"
+                                       >
+                                <label class="form-check-label" for="face_2">
+                                    EN
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input
+                                       data-svicher="true" data-show="#face_asme" data-hide=".face_type"
+                                       class="form-check-input"
+                                       name="face[value]"
+                                       type="radio"
+                                       value="ASME"
+                                       id="face_3"
+                                       >
+                                <label class="form-check-label" for="face_3">
+                                    ASME
+                                </label>
+                            </div>
+
+                            <input type="hidden" name="face[id]" value="11">
+                        </div>
+
+
+                        <div id="face_gost" class="form-group face_type">
+                            <select required class="form-control" name="face[ГОСТ][type][value]">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="L">L</option>
+                                <option value="D">D</option>
+                                <option value="M">M</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                                <option value="J">J</option>
+                                <option value="K">K</option>
+                            </select>
+                        </div>
+
+                        <div id="face_en" style="display: none" class="form-group face_type">
+                            <select required class="form-control" name="face[EN][type][value]">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                                <option value="G">G</option>
+                                <option value="H">H</option>
+                            </select>
+                        </div>
+
+                        <div id="face_asme" style="display: none" class="form-group face_type">
+                            <select required class="form-control" name="face[ASME][type][value]">
+                                <option value="FF">FF</option>
+                                <option value="RF">RF</option>
+                                <option value="RTJ">RTJ</option>
+                                <option value="LAP JOINT">LAP JOINT</option>
+                                <option value="SM">SM</option>
+                                <option value="LM">LM</option>
+                                <option value="SF">SF</option>
+                                <option value="LF">LF</option>
+                                <option value="ST">ST</option>
+                                <option value="LT">LT</option>
+                                <option value="SG">SG</option>
+                                <option value="LG">LG</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Строительная длина</label>
+                            <input type="hidden" name="ftf[label]" value="Строительная длина">
+                            <input type="number" class="form-control" name="ftf[value]">
+                            <input type="hidden" name="ftf[id]" value="12">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Материал корпуса</label>
+                            <input type="hidden" name="body[label]" value="Материал корпуса">
+                            <select required class="form-control" name="body[value]">
+                                <option value="GGG40">GGG40</option>
+                                <option value="A216 WCB">A216 WCB</option>
+                                <option value="LCB">LCB</option>
+                                <option value="LCC">LCC</option>
+                                <option value="LC1">LC1</option>
+                                <option value="LC2">LC2</option>
+                                <option value="LC3">LC3</option>
+                                <option value="304">304</option>
+                                <option value="316">316</option>
+                                <option value="316L">316L</option>
+                                <option value="316Ti">316Ti</option>
+                                <option value="321">321</option>
+                                <option value="904L">904L</option>
+                                <option value="2205">2205</option>
+                                <option value="GG25">GG25</option>
+                                <option value="AI">AI</option>
+                                <option value="PP">PP</option>
+                            </select>
+                            <input type="hidden" name="body[id]" value="13">
+                        </div>
+
+ 
+                        <div class="form-group">
+                            <label>Материал диска</label>
+                            <input type="hidden" name="disc[label]" value="Материал диска">
+                            <select required class="form-control" name="disc[value]">
+                                <option value="GGG40">GGG40</option>
+                                <option value="A216 WCB">A216 WCB</option>
+                                <option value="304">304</option>
+                                <option value="316">316</option>
+                                <option value="304L">304L</option>
+                                <option value="316L">316L</option>
+                                <option value="316Ti">316Ti</option>
+                                <option value="321">321</option>
+                                <option value="904L">904L</option>
+                                <option value="2205">2205</option>
+                            </select>
+                            <input type="hidden" name="disc[id]" value="14">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Материал седлового уплотнения</label>
+                            <input type="hidden" name="seat[label]" value="Материал седлового уплотнения">
+                            <select required class="form-control" name="seat[value]" data-else="true">
+                                <option value="EPDM">EPDM</option>
+                                <option value="SBR">SBR</option>
+                                <option value="NBR">NBR</option>
+                                <option value="Silicon">Silicon</option>
+                                <option value="Viton">Viton</option>
+                                <option value="PTFE">PTFE</option>
+                                <option value="Metal+Graphite">Metal+Graphite</option>
+                                <option value="304">304</option>
+                                <option value="316">316</option>
+                                <option value="2205">2205</option>
+                                <option value="inconel">inconel</option>
+                                <option value="else">Другое</option>
+                            </select>
+                            <div class="input-group mt-2" style="display: none" data-type="else-input">
+                                <input type="text" name="seat[else]"  class="form-control" placeholder="Другое значение">
+                            </div>
+                            <input type="hidden" name="seat[id]" value="15">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label>Материал штока</label>
+                            <input type="hidden" name="stem[label]" value="Материал штока">
+                            <select required class="form-control" name="stem[value]" data-else="true">
+                                <option value="304">304</option>
+                                <option value="316">316</option>
+                                <option value="410">410</option>
+                                <option value="415">415</option>
+                                <option value="416">416</option>
+                                <option value="else">Другое</option>
+                            </select>
+                            <div class="input-group mt-2" style="display: none" data-type="else-input">
+                                <input type="text" name="stem[else]"  class="form-control" placeholder="Другое значение">
+                            </div>
+                            <input type="hidden" name="stem[id]" value="16">
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label>Класс герметичности</label>
+                            <input type="hidden" name="tightness[label]" value="Класс герметичности">
+                            <select  class="form-control" name="tightness[value]">
+                                <option value="A">A</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                                <option value="G">G</option>
+                                <option value="VI">VI</option>
+                                <option value="V">V</option>
+                                <option value="IV">IV</option>
+                                <option value="III">III</option>
+                                <option value="II">II</option>
+                                <option value="I">I</option>
+                            </select>
+                            <input type="hidden" name="tightness[id]" value="17">
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <label>Рабочее давление</label>
+                            <input type="hidden" name="working_pressure[label]" value="Рабочее давление">
+                            <input type="text" class="form-control" name="working_pressure[value]">
+                            <input type="hidden" name="working_pressure[id]" value="19">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Рабочая температура</label>
+                            <input type="hidden" name="working_temperature[label]" value="Рабочая температура">
+                            <input type="text" class="form-control" name="working_temperature[value]">
+                            <input type="hidden" name="working_temperature[id]" value="20">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Окружающая среда (температура, пары...)</label>
+                            <input type="hidden" name="working_ambient[label]" value="Окружающая среда (температура, пары...)">
+                            <input type="text" class="form-control" name="working_ambient[value]">
+                            <input type="hidden" name="working_ambient[id]" value="21">
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label>Назначение</label>
+                            <input type="hidden" name="valve_purpose[label]" value="Назначение">
+                            <div class="form-check">
+                                <input
+                                        data-svicher="true" data-show="#input_media"
+                                        class="form-check-input"
+                                        name="valve_purpose[value]"
+                                        type="radio"
+                                        value="Запорный"
+                                        id="valve_purpose_1" checked
+                                >
+                                <label class="form-check-label" for="valve_purpose_1">
+                                    Запорный
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input
+                                        data-svicher="true"  data-show="#input_media"
+                                        class="form-check-input"
+                                        name="valve_purpose[value]"
+                                        type="radio"
+                                        value="Регулирующий"
+                                        id="valve_purpose_2"
+                                >
+                                <label class="form-check-label" for="valve_purpose_2">
+                                    Регулирующий
+                                </label>
+                            </div>
+							<div class="form-check">
+                                <input
+                                        data-svicher="true" data-show="#input_media"
+                                        class="form-check-input"
+                                        name="valve_purpose[value]"
+                                        type="radio"
+                                        value="Запорно-регулирующий"
+                                        id="valve_purpose_3"
+                                >
+                                <label class="form-check-label" for="valve_purpose_3">
+                                    Запорно-регулирующий
+                                </label>
+                            </div>
+                            <input type="hidden" name="valve_purpose[id]" value="22">
+                        </div>
+
+                        <!--div id="input_media" class="form-group" style="display:none"-->
+                        <div id="input_media" class="form-group">
+                            <label>Рабочая среда (вода, кислота, бензин  и проч.)</label>
+                            <input type="hidden" name="media[label]" value="Рабочая среда">
+                            <input type="text" class="form-control" name="media[value]">
+                            <input type="hidden" name="media[id]" value="18">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label><span>*</span>Управление</label>
+                            <input type="hidden" name="operation[label]" value="Управление">
+                            <select required class="form-control" name="operation[value]">
+                                <option value="Без привода (голый шток)">Без привода (голый шток)</option>
+                                <option value="Ручной (рукоятка с фиксатором)">Ручной (рукоятка с фиксатором)</option>
+                                <option value="Ручной (редуктор с маховиком)">Ручной (редуктор с маховиком)</option>
+                                <option value="Электропривод">Электропривод</option>
+                                <option value="Пневмопривод">Пневмопривод</option>
+                                <option value="Гидропневмопривод">Гидропневмопривод</option>
+                            </select>
+                            <input type="hidden" name="operation[id]" value="23">
+                        </div>
+
+
+
+                        <div  class="form-group">
+                            <label><span>*</span>Количество</label>
+                            <input type="hidden" name="quantity[label]" value="Количество">
+                            <input required type="text" class="form-control" name="quantity[value]">
+                            <input type="hidden" name="quantity[id]" value="24">
+                        </div>
+
+
+                        <div  class="form-group">
+                            <label>Дополнительно (все что не вошло)</label>
+                            <input type="hidden" name="notes[label]" value="Дополнительно (все что не вошло)">
+                            <textarea  rows="5" class="form-control" name="notes[value]"></textarea>
+                            <input type="hidden" name="notes[id]" value="25">
+                        </div>
+                        
+                        
+                        
+                        <table>
+  <tr>
+    <td><div class="form-group">
+                            <button class="btn btn-lg btn-primary" type="submit" style=""><b>ДОБАВИТЬ ПОЗИЦИЮ</b></button>
+                        </div></td>
+                        <td><div class="form-group">
+                            <button class="btn btn-lg btn-primary" type="submit" style="margin-left: 20px;">Отправить</button>
+                        </div></td>
+  </tr>
+  
+    
+
+</table>
+                        
+                        
+                        
+                        
+
+                    </form>
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<!--script src="engine.js"></script-->
+<script>
+$('select[data-else="true"]').change(function (){
+    if($(this).val() == 'else'){
+        $(this).parent().find('div[data-type="else-input"]').css('display', '');
+    }else {
+        $(this).parent().find('div[data-type="else-input"]').css('display', 'none');
+    }
+});
+
+$('[data-svicher="true"]').click(function (){
+    if($(this).data('hide')){
+        $($(this).data('hide')).css('display', 'none');
+    }
+    if($(this).data('show')){
+        $($(this).data('show')).css('display', '');
+    } 
+});
+</script>
+
+
+<script>
+    function removeParam(parameter)
+    {
+        var url=document.location.href;
+        var urlparts= url.split('?');
+
+        if (urlparts.length>=2)
+        {
+            var urlBase=urlparts.shift();
+            var queryString=urlparts.join("?");
+
+            var prefix = encodeURIComponent(parameter)+'=';
+            var pars = queryString.split(/[&;]/g);
+            for (var i= pars.length; i-->0;)
+                if (pars[i].lastIndexOf(prefix, 0)!==-1)
+                    pars.splice(i, 1);
+            url = urlBase+'?'+pars.join('&');
+            window.history.pushState('',document.title,url); // added this line to push the new url directly to url bar .
+
+        }
+    } 
+    var params = new window.URLSearchParams(window.location.search);
+     if(params.get('status')=='true'){
+         alert('Заявка успешно отправлена!');
+         removeParam('status');
+     }
+</script>
+
+</body>
+</html>
